@@ -12,13 +12,12 @@
 }
 
 .info{
-    padding-left: 100px;
     font-family: RegularFont;
     width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .info p:first-of-type{
@@ -35,12 +34,11 @@
 }
 
 .inputArea{
-    margin-top: 10px;
+    width: 100%;
 }
 
 .inputArea input{
-    display: block;
-    width: 100%;
+    width: 97%;
     padding-left: 10px;
     font-family: boldFont;
     color: #001a51;
@@ -57,7 +55,7 @@
 
 .borderStyle{
     border: 1px solid #9898a2;
-    height: 40px;
+    height: 45px;
     border-radius: 5px;
 }
 
@@ -65,7 +63,13 @@
     border: 1px solid #554ca9
 }
 
+.nextStep{
+    display: flex;
+    justify-content: end;
+}
+
 .btn{
+    cursor: pointer;
     background: #174a8b;
     width: 30%;
     height: 50px;
@@ -73,6 +77,11 @@
     border-radius: 10px;
     border: none;
     color: white;
+    transition: 0.2s;
 }
 
+.btn:hover{
+    transition: 0.2s;
+    background: #554ca9;
+}
 
