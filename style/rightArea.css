@@ -1,3 +1,78 @@
-.rightArea{
-    background-color: green;
+@font-face{
+    font-family: mediumFont;
+    src: url(../assets/fonts/Ubuntu-Medium.ttf);
 }
+@font-face{
+    font-family: RegularFont;
+    src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+@font-face{
+    font-family: boldFont;
+    src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+
+.info{
+    padding-left: 100px;
+    font-family: RegularFont;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info p:first-of-type{
+    font-size: 30pt;
+    font-family: boldFont;
+    color: #001a51;
+}
+
+.info p{
+    margin: 0;
+    font-family: regularFont;
+    color: #9898a2;
+    font-size: 13pt;
+}
+
+.inputArea{
+    margin-top: 10px;
+}
+
+.inputArea input{
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    font-family: boldFont;
+    color: #001a51;
+}
+
+.inputArea span{
+    font-size: 11pt;
+}
+
+.inputs{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.borderStyle{
+    border: 1px solid #9898a2;
+    height: 40px;
+    border-radius: 5px;
+}
+
+*:focus{
+    border: 1px solid #554ca9
+}
+
+.btn{
+    background: #174a8b;
+    width: 30%;
+    height: 50px;
+    font-size: 15pt;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+
