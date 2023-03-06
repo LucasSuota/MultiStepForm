@@ -1,0 +1,92 @@
+@font-face{
+    font-family: mediumFont;
+    src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face{
+    font-family: RegularFont;
+    src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+@font-face{
+    font-family: boldFont;
+    src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef5ff;
+}
+
+.container{
+    display: flex;
+    width: 900px;
+}
+
+.main{
+    background: white;
+    width: 100%;
+    height: 500px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.leftArea{
+    width: 30%;
+    height: 100%;
+    background-image: url(../assets/images/bg-sidebar-desktop.svg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    float: left;
+}
+
+.rightArea{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    float: right;
+}
+
+.steps{
+    padding-top: 25px;
+    padding-left: 25px;
+}
+
+.left{
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1.5px solid white;
+    border-radius: 100%;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    padding-left: 20px;
+    height: 35px;
+}
+
+.right span:first-of-type{
+    color: #a7acff;
+    font-family: RegularFont;
+    font-size: 10pt;
+}
+
+.left span{
+    font-family: boldFont;
+    color: white;
+}
+
+.steps{
+    color: white;
+    font-family: boldFont;
+}
