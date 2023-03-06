@@ -30,7 +30,7 @@
     margin: 0;
     font-family: regularFont;
     color: #9898a2;
-    font-size: 13pt;
+    font-size: 12pt;
 }
 
 .inputArea{
@@ -65,7 +65,7 @@
 
 .nextStep{
     display: flex;
-    justify-content: end;
+    justify-content:space-between;
 }
 
 .btn{

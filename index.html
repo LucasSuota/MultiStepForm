@@ -13,7 +13,8 @@
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./style/leftArea.css">
-  <link rel="stylesheet" href="./style/rightArea.css">
+  <link rel="stylesheet" href="./style/personalInfo.css">
+  <link rel="stylesheet" href="./style/planSelection.css">
   <script src="./script/getInformation.js" defer></script>
 </head>
 <body>
@@ -57,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div class="rightArea">
+      <div class="personalInfo">
         <div class="info">
           <div class="textArea">
             <p>Personal Info</p>
@@ -80,6 +81,48 @@
           <div class="nextStep">
             <button class="btn">Next Step</button>
           </div>
+        </div>
+      </div>
+      <div class="planSelection">
+        <div class="info">
+          <div class="textArea">
+            <p>Select Plan</p>
+            <p>You have the option of monthly or yearly billing.</p>
+          </div>
+          <div class="plans">
+            <div class="selectPlan">
+              <img src="./assets/images/icon-arcade.svg" alt="arcade">
+              <div class="text">
+                <p>Arcade</p>
+                <p>$9/mo</p>
+              </div>
+            </div>
+            <div class="selectPlan">
+              <img src="./assets/images/icon-advanced.svg" alt="arcade">
+              <div class="text">
+                <p>Arcade</p>
+                <p>$12/mo</p>
+              </div>
+            </div>
+            <div class="selectPlan">
+              <img src="./assets/images/icon-pro.svg" alt="arcade">
+              <div class="text">
+                <p>Arcade</p>
+                <p>$15/mo</p>
+              </div>
+            </div>
+        </div>
+        <div class="monthyearly">
+          <span>monthly</span>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <span>yearly</span>
+        </div>
+        <div class="nextStep">
+          <button class="btnBack">Go Back</button>
+          <button class="btn">Next Step</button>
         </div>
       </div>
     </div>

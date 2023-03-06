@@ -1,20 +1,17 @@
-class getData{
-    constructor(name, email, phone){
-        this.name = name
-        this.email = email
-        this.phone = phone
-    }
-    bd(x){
-        localStorage.setItem('data', JSON.stringify(x))
-    }
+const nextBtn = document.querySelector('.btn')
+const goBackBtn = document.querySelector('.btnBack')
+
+nextBtn.onclick = () => {
+    const hide = document.querySelector('.personalInfo')
+    const show = document.querySelector('.planSelection')
+    hide.style.display = 'none'
+    show.style.display = 'flex'
+    show.style.transtion = '0.2s'
 }
 
-let btn = document.querySelector('.btn')
-btn.addEventListener('click', () => {
-    const name = document.querySelector('#nameId').value
-    const email = document.querySelector('#emailId').value
-    const number = document.querySelector('#phoneNumberId').value
-    let newItem = new getData(name, email, number)
-    newItem.bd(newItem)  
-})
-
+goBackBtn.onclick = () => {
+    const hide = document.querySelector('.personalInfo')
+    const show = document.querySelector('.planSelection')
+    hide.style.display = 'flex'
+    show.style.display = 'none'
+}

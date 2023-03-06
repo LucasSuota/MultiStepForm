@@ -44,7 +44,16 @@ body{
     float: left;
 }
 
-.rightArea{
+.planSelection{
+    display: none;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    float: right;
+}
+
+.personalInfo{
     display: flex;
     justify-content: center;
     width: 70%;
