@@ -6,7 +6,6 @@ nextBtn.onclick = () => {
     const show = document.querySelector('.planSelection')
     hide.style.display = 'none'
     show.style.display = 'flex'
-    show.style.transtion = '0.2s'
 }
 
 goBackBtn.onclick = () => {
@@ -14,4 +13,11 @@ goBackBtn.onclick = () => {
     const show = document.querySelector('.planSelection')
     hide.style.display = 'flex'
     show.style.display = 'none'
+}
+
+function changePrices(){
+    if(document.querySelector('.checkbox').checked = true){
+        let value = document.querySelector('.value').value
+        value.innerHTML = value * 10
+    }
 }
