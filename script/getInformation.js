@@ -1,3 +1,5 @@
+//show the next tabs
+
 document.querySelector('.btn').onclick = () => {
     const hide = document.querySelector('.personalInfo')
     const show = document.querySelector('.planSelection')
@@ -11,6 +13,8 @@ document.querySelector('.btnBack').onclick = () => {
     hide.style.display = 'flex'
     show.style.display = 'none'
 }
+
+//changes from monthly to yearly, working but not fully. The values are not going anywhere.
 
 document.querySelector('.checkbox').onclick = () => {
     let valueList = document.querySelectorAll('.value')
@@ -28,3 +32,4 @@ document.querySelector('.checkbox').onclick = () => {
         })
     }
 }
+
