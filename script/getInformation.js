@@ -41,8 +41,7 @@ class UI{
             const show = document.querySelector('.planSelection')
             hide.style.display = 'none'
             show.style.display = 'flex'
-            user.getUserInfo()
-            console.log(user)
+
         }
         
         document.querySelector('.btnBack').onclick = () => {
@@ -57,14 +56,15 @@ class UI{
         document.querySelector('.checkbox').onclick = () => {
 
             let valueList = document.querySelectorAll('.value')
-
             if(document.querySelector('.checkbox').checked == true){
-            valueList.forEach(values => {
-                let valuesArray = []
-                valuesArray = (values.innerHTML.replace('$', '').replace('/mo', ''))
-                values.innerHTML = `$${JSON.parse(valuesArray * 10)}/yr`
+                this.addText()
+                valueList.forEach(values => {
+                    let valuesArray = []
+                    valuesArray = (values.innerHTML.replace('$', '').replace('/mo', ''))
+                    values.innerHTML = `$${JSON.parse(valuesArray * 10)}/yr`
                 })
             } else {
+                this.deleteText()
                 valueList.forEach(values => {
                     let valuesArray = []
                     valuesArray = values.innerHTML.replace('$', '').replace('/yr', '')
@@ -74,16 +74,16 @@ class UI{
         }
     }
     addText(){
-
-        let motherDiv = document.querySelector('.text')
-        let twoMonthsFree = document.createElement('span')
-        twoMonthsFree.innerHTML = `2 months free`
-
-        if(User.priceValidation() == true){
-            motherDiv.appendChild(twoMonthsFree)
-        } else {
-            motherDiv.removeChild(twoMonthsFree)
-        }
+        const twoMonths = document.createElement('span')
+        twoMonths.classList = 'freemonths'
+        twoMonths.innerHTML = '2 months free'
+        const divs = document.querySelectorAll('.text')
+        divs.forEach(item => {
+            item.append(twoMonths)
+        })
+    }
+    deleteText(){
+        document.querySelector('.freemonths').remove()
     }
 }
 
