@@ -14,6 +14,12 @@
     justify-content: space-evenly;
 }
 
+.selectPlan:hover{
+    background: #f8f9fe;
+    border: 1px solid #554ca9;
+}
+
+
 .selectPlan{
     cursor: pointer;
     display: flex;

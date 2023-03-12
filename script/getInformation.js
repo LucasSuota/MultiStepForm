@@ -33,3 +33,10 @@ document.querySelector('.checkbox').onclick = () => {
     }
 }
 
+//Plan selection not working, start working with classes.
+
+function selectPlan(event){
+    const items = document.querySelectorAll('.selectPlan')
+    console.log(event.target.items)
+}
+
