@@ -1,16 +1,3 @@
-@font-face{
-    font-family: mediumFont;
-    src: url(../assets/fonts/Ubuntu-Medium.ttf);
-}
-@font-face{
-    font-family: RegularFont;
-    src: url(../assets/fonts/Ubuntu-Regular.ttf);
-}
-@font-face{
-    font-family: boldFont;
-    src: url(../assets/fonts/Ubuntu-Bold.ttf);
-}
-
 .info{
     font-family: RegularFont;
     width: 70%;
