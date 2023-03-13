@@ -44,5 +44,51 @@
 
 .btnArea{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+}
+
+.planOptions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.planDivision{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #174a8b;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.planDivision img{
+    width: 50px;
+    height: 50px;
+}
+
+.planDivision p:first-of-type{
+    color: #00124b;
+    font-size: font700;
+    font-weight: bold;
+}
+
+.planDivision p{
+    color: #8d8f96;
+}
+
+.billing{
+    display: flex;
+    justify-content: center;
+    background: #f7f8fc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.billing p{
+    margin-left: 50px;
+    margin-right: 50px;
 }
