@@ -1,0 +1,109 @@
+@font-face {
+    font-family: font400;
+    src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+@font-face {
+    font-family: font500;
+    src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+    font-family: font700;
+    src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+
+.d-none{
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: font400;
+}
+
+body{
+    background: #eef5ff;
+}
+
+.body{
+    margin: auto;
+    width: 1440px;
+}
+
+.multiStepFormContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.main{
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    width: 900px;
+    height: 600px;
+    padding: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.leftArea{
+    background-image: url(../assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.steps{
+    margin: 10px;
+}
+
+.step{
+    margin-left: 20px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: left;
+}
+
+.stepMark{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 100%;
+    color: white;
+    font-family: font700;
+}
+
+.stepInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.stepInfo p:first-of-type{
+    color: #babeda;
+    font-family: font500;
+}
+
+.stepInfo p{
+    color: white;
+    font-family: font700;
+}
+
+.nextStepBtn{
+    cursor: pointer;
+    background: #174a8b;
+    width: 30%;
+    height: 50px;
+    font-size: 15pt;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}

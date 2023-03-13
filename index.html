@@ -2,131 +2,212 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Multi Step Form</title>
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="./style/leftArea.css">
-  <link rel="stylesheet" href="./style/personalInfo.css">
-  <link rel="stylesheet" href="./style/planSelection.css">
-  <script src="./script/getInformation.js" defer></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Step Form by Lucas Suota</title>
+  <link rel="icon" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style/general.css">
+  <link rel="stylesheet" href="./style/rightArea.css">
 </head>
 <body>
-  <div class="container">
+  <div class="multiStepFormContainer">
     <div class="main">
+      <!-- Left Area -->
       <div class="leftArea">
         <div class="steps">
-          <div class="left stepNumberSelected">
-            <span>1</span>
+          <div class="step">
+            <p class="stepMark step-1">1</p>
+            <div class="stepInfo">
+              <p>STEP 1</p>
+              <p>YOUR INFO</p>
+            </div>
           </div>
-          <div class="right">
-            <span>STEP 1</span>
-            <span>YOUR INFO</span>
+          <div class="step">
+            <p class="stepMark step-2">2</p>
+            <div class="stepInfo">
+              <p>STEP 2</p>
+              <p>SELECT PLAN</p>
+            </div>
           </div>
-        </div>
-        <div class="steps">
-          <div class="left stepNumberSelected">
-            <span>2</span>
+          <div class="step">
+            <p class="stepMark step-3">3</p>
+            <div class="stepInfo">
+              <p>STEP 3</p>
+              <p>ADD-ONS</p>
+            </div>
           </div>
-          <div class="right">
-            <span>STEP 2</span>
-            <span>SELECT PLAN</span>
-          </div>
-        </div>
-        <div class="steps">
-          <div class="left stepNumberSelected">
-            <span>3</span>
-          </div>
-          <div class="right">
-            <span>STEP 3</span>
-            <span>ADD-ONS</span>
-          </div>
-        </div>
-        <div class="steps">
-          <div class="left stepNumberSelected">
-            <span>4</span>
-          </div>
-          <div class="right">
-            <span>STEP 4</span>
-            <span>SUMMARY</span>
+          <div class="step">
+            <p class="stepMark step-4">4</p>
+            <div class="stepInfo">
+              <p>STEP 4</p>
+              <p>SUMMARY</p>
+            </div>
           </div>
         </div>
       </div>
-      <div id="step-1" class="formStep personalInfo" step="1">
-        <div class="info">
-          <div class="textArea">
-            <p>Personal Info</p>
-            <p>Please provide your name, email address, and phone number.</p>
+      <!-- Right Area -->
+      <div class="rightArea">
+        <!-- Personal Info -->
+        <div class="stepForm personalInfo">
+          <div class="formContent">
+            <div class="titleText">
+              <h1>Personal info</h1>
+              <h2>Please provide your name, email address, and phone number.</h2>
+            </div>
+            <div class="userInformationSection">
+              <div class="userInputs">
+                <p>Name</p>
+                <input class="userName" placeholder="e.g. Stephen King" type="text">
+              </div>
+              <div class="userInputs">
+                <p>Email Address</p>
+                <input class="userEmail" placeholder="e.g. stephenking@lorem.com" type="text">
+              </div>
+              <div class="userInputs">
+                <p>Phone Number</p>
+                <input class="userPhoneNumber" placeholder="e.g. +1 234 567 890" type="text">
+              </div>
+            </div>
+            <div class="btnArea">
+              <button class="nextStepBtn">Next Step</button>
+            </div>
           </div>
-          <div class="inputArea">
-            <div class="inputs">
-              <span>Name</span>
-              <input id="nameId" type="text" class="label borderStyle" placeholder="Your Name">
+        </div>
+        <!-- Select Plan -->
+        <div class="stepForm selectPlan d-none">
+          <div class="formContent">
+            <div class="titleText">
+              <h1>Select your plan</h1>
+              <h2>You have the option of monthly or yearly billing.</h2>
             </div>
-            <div class="inputs">
-              <span>Email Address</span>
-              <input id="emailId" type="text" class="label borderStyle" placeholder="youremail@email.com">
+            <div class="planOptions">
+              <div class="planDivision">
+                <img src="./assets/images/icon-arcade.svg" alt="arcadeOption">
+                <div class="titlePrice">
+                  <p>Arcade</p>
+                  <p>price</p>
+                </div>
+              </div>
+              <div class="planDivision">
+                <img src="./assets/images/icon-advanced.svg" alt="advancedOption">
+                <div class="titlePrice">
+                  <p>Advanced</p>
+                  <p>price</p>
+                </div>
+              </div>
+              <div class="planDivision">
+                <img src="./assets/images/icon-pro.svg" alt="proOption">
+                <div class="titlePrice">
+                  <p>Pro</p>
+                  <p>price</p>
+                </div>
+              </div>
             </div>
-            <div class="inputs">
-              <span>Phone Number</span>
-              <input id="phoneNumberId" type="text" class="label borderStyle" placeholder="40028922">
+            <div class="billing">
+              <p>Monthly</p>
+              <input type="checkbox">
+              <p>yearly</p>
+            </div>
+            </div>
+            <div class="btnArea">
+              <button class="goBackBtn">Go Back</button>
+              <button class="nextStepBtn">Next Step</button>
             </div>
           </div>
-          <div class="nextStep">
-            <button class="btn" step_number="1">Next Step</button>
+        </div>
+        <!-- Add-ons -->
+        <div class="stepForm selectAddons d-none">
+          <div class="formContent">
+            <div class="titleText">
+              <h1>Pick add-ons</h1>
+              <h2>Add-ons help enhance your gaming experience</h2>
+            </div>
+            <div class="addonsInformationSection">
+              <div class="userAddons">
+                <input type="checkbox">
+                <div class="addonsInfomation">
+                  <div class="textInformation">
+                    <p>Online service</p>
+                    <p>Access to multiplayer games</p>
+                  </div>
+                    <p>+$1/mo</p>
+                </div>
+              </div>
+              <div class="userAddons">
+                <input type="checkbox">
+                <div class="addonsInfomation">
+                  <div class="textInformation">
+                    <p>Larger Storage</p>
+                    <p>Extra 1TB of cloud save</p>
+                  </div>
+                    <p>+$2/mo</p>
+                </div>
+              </div>
+              <div class="userAddons">
+                <input type="checkbox">
+                <div class="addonsInfomation">
+                  <div class="textInformation">
+                    <p>Customizable profile</p>
+                    <p>Custom theme on your profile</p>
+                  </div>
+                  <p>+$2/mo</p>
+                </div>
+              </div>
+          </div>
+          <div class="btnArea">
+            <button class="goBackBtn">Go Back</button>
+            <button class="nextStepBtn">Next Step</button>
           </div>
         </div>
       </div>
-      <div id="step-2" class="formStep planSelection" step="2">
-        <div class="info">
-          <div class="textArea">
-            <p>Select Plan</p>
-            <p>You have the option of monthly or yearly billing.</p>
+        <!-- Summary -->
+        <div class="stepForm summary d-none">
+          <div class="formContent">
+            <div class="titleText">
+              <h1>Finishing up</h1>
+              <h2>Double-check everything looks OK before confirming</h2>
+            </div>
+          <div class="lastConfirmation">
+            <div class="planInformationCheck">
+              <div class="planSelected">
+                <p>Plan (monthly or yearly)</p>
+                <a href="#">Change</a>
+              </div>
+              <div class="itemValue">
+                <p>price</p>
+              </div>
+            </div>
+            <div class="addonsInformationCheck">
+              <div class="addonsSelected">
+                <p>addons-selected-1</p>
+              </div>
+              <div class="itemValue">
+                <p>price</p>
+              </div>
+            </div>
+            <div class="totalValue">
+              <p>Total (per month/yearly)</p>
+              <p>price/mo/yr</p>
+            </div>
           </div>
-          <div class="plans">
-            <div class="selectPlan" data-plan="arcade" onclick="planSelection(event)">
-              <img src="./assets/images/icon-arcade.svg" alt="arcade">
-              <div class="text">
-                <p>Arcade</p>
-                <p class="value">$9/mo</p>
-              </div>
-            </div>
-            <div class="selectPlan" data-plan="advanced" onclick="planSelection(event)">
-              <img src="./assets/images/icon-advanced.svg" alt="arcade">
-              <div class="text">
-                <p>Advanced</p>
-                <p class="value">$12/mo</p>
-              </div>
-            </div>
-            <div class="selectPlan" data-plan="pro" onclick="planSelection(event)">
-              <img src="./assets/images/icon-pro.svg" alt="arcade">
-              <div class="text">
-                <p>Pro</p>
-                <p class="value">$15/mo</p>
-              </div>
-            </div>
+          <div class="btnArea">
+            <button class="goBackBtn">Go Back</button>
+            <button class="confirmBtn">Confirm</button>
+          </div>
         </div>
-        <div class="monthyearly">
-          <span>monthly</span>
-          <label class="switch">
-            <input class="checkbox" type="checkbox">
-            <span class="slider round"></span>
-          </label>
-          <span>yearly</span>
-        </div>
-        <div class="nextStep">
-          <button class="btnBack">Go Back</button>
-          <button class="btn">Next Step</button>
+      </div>
+      <!-- Confirmation -->
+      <div class="stepForm confirmation d-none">
+        <img src="./assets/images/icon-thank-you.svg" alt="confirmationIcon">
+        <div class="confirmationText">
+          <h1>Thank you!</h1>
+          <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com</p>
+          <p>Design by <a href="https://www.frontendmentor.io/home">Front End Mentor</a></p>
+          <p>Code by <a href="https://www.linkedin.com/in/lucas-suota-91b83b222/">Lucas Suota</a></p>
         </div>
       </div>
     </div>
-
+    </div>
   </div>
 </body>
 </html>
