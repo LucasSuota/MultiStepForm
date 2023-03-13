@@ -1,0 +1,48 @@
+.rightArea{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.formContent{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;   
+}
+
+.stepForm{
+    width: 65%;
+    margin: 30px;
+}
+
+.titleText h1{
+    font-family: font500;
+    color: #00124b;
+}
+
+.titleText h2{
+    font-family: font400;
+    font-weight:100;
+    font-size: 11pt;
+    color: #8d8f96;
+}
+
+.userInputs p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.userInputs input{
+    width: 97%;
+    border: 1px solid #9898a2;
+    height: 45px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.btnArea{
+    display: flex;
+    justify-content: end;
+}
