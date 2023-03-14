@@ -189,3 +189,79 @@ input:checked + .slider:before{
     align-items: center;
 }
 
+.lastConfirmation{
+    background: #f8f9fe;
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.planInformationCheck{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e8e8ec;
+}
+
+.planSelected{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.addonsInformationCheck{
+    margin-top: 10px;
+    display: block;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e8e8ec;
+}
+
+.addonsItems{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemValue p{
+    color: #463fff;
+}
+
+.totalValue{
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalValue p:first-of-type{
+    color: black;
+    font-weight: 100;
+}
+
+.totalValue p{
+    color: #463fff;
+    font-weight: bold;
+}
+
+.confirmation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmation img{
+    margin: 20px;
+    width: 100px;
+    height: 100px;    
+}
+
+.accessLinks{
+    margin: 50px;
+}
+
+.confirmationText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
