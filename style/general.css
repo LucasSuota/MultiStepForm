@@ -107,3 +107,9 @@ body{
     border: none;
     color: white;
 }
+
+.goBackBtn{
+    border: none;
+    background: none;
+    cursor: pointer;
+}

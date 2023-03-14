@@ -48,7 +48,7 @@
       <!-- Right Area -->
       <div class="rightArea">
         <!-- Personal Info -->
-        <div class="stepForm personalInfo">
+        <div class="stepForm personalInfo d-none">
           <div class="formContent">
             <div class="titleText">
               <h1>Personal info</h1>
@@ -105,9 +105,11 @@
             </div>
             <div class="billing">
               <p>Monthly</p>
-              <input type="checkbox">
-              <p>yearly</p>
-            </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              <p>Yearly</p>
             </div>
             <div class="btnArea">
               <button class="goBackBtn">Go Back</button>
@@ -115,8 +117,8 @@
             </div>
           </div>
         </div>
-        <!-- Add-ons -->
-        <div class="stepForm selectAddons d-none">
+        <!-- Addons-->
+        <div class="stepForm selectAddons ">
           <div class="formContent">
             <div class="titleText">
               <h1>Pick add-ons</h1>
@@ -153,13 +155,13 @@
                   <p>+$2/mo</p>
                 </div>
               </div>
-          </div>
-          <div class="btnArea">
-            <button class="goBackBtn">Go Back</button>
-            <button class="nextStepBtn">Next Step</button>
+            </div>
+            <div class="btnArea">
+              <button class="goBackBtn">Go Back</button>
+              <button class="nextStepBtn">Next Step</button>
+            </div>
           </div>
         </div>
-      </div>
         <!-- Summary -->
         <div class="stepForm summary d-none">
           <div class="formContent">
@@ -197,16 +199,17 @@
         </div>
       </div>
       <!-- Confirmation -->
-      <div class="stepForm confirmation d-none">
-        <img src="./assets/images/icon-thank-you.svg" alt="confirmationIcon">
-        <div class="confirmationText">
-          <h1>Thank you!</h1>
-          <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com</p>
-          <p>Design by <a href="https://www.frontendmentor.io/home">Front End Mentor</a></p>
-          <p>Code by <a href="https://www.linkedin.com/in/lucas-suota-91b83b222/">Lucas Suota</a></p>
+          <div class="stepForm confirmation d-none">
+            <img src="./assets/images/icon-thank-you.svg" alt="confirmationIcon">
+            <div class="confirmationText">
+              <h1>Thank you!</h1>
+              <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com</p>
+              <p>Design by <a href="https://www.frontendmentor.io/home">Front End Mentor</a></p>
+              <p>Code by <a href="https://www.linkedin.com/in/lucas-suota-91b83b222/">Lucas Suota</a></p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </body>

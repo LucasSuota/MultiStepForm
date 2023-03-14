@@ -44,5 +44,148 @@
 
 .btnArea{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 }
+
+.planOptions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.planDivision{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #174a8b;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.planDivision img{
+    width: 50px;
+    height: 50px;
+}
+
+.planDivision p:first-of-type{
+    color: #00124b;
+    font-size: font700;
+    font-weight: bold;
+}
+
+.planDivision p{
+    color: #8d8f96;
+}
+
+.billing{
+    display: flex;
+    justify-content: center;
+    background: #f7f8fc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.billing p{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+  }
+  
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+.slider:before{
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+input:checked + .slider{
+    background-color: #2196F3;
+  }
+  
+input:focus + .slider{
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+input:checked + .slider:before{
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+  }
+  
+.slider.round{
+    border-radius: 34px;
+}
+  
+.slider.round:before{
+    border-radius: 50%;
+}
+
+.userAddons{
+    height: 60px;
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #174a8b;
+    border-radius: 10px;
+    background: #f7f8fc;
+}
+
+.textInformation p:first-of-type{
+    font-weight: bold;
+    color: #00124b;
+}
+
+.textInformation p{
+    color: #919191;
+    font-weight: 100;
+}
+
+.userAddons input{
+    margin: 10px;
+    width: 20px;
+    accent-color: #463fff;
+}
+
+.addonsInfomation{
+    color: #463fff;
+    font-weight: bold;
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
