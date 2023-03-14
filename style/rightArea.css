@@ -265,3 +265,7 @@ input:checked + .slider:before{
     align-items: center;
     text-align: center;
 }
+
+.d-none{
+    display: none;
+}
