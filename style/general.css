@@ -113,3 +113,14 @@ body{
     background: none;
     cursor: pointer;
 }
+
+.confirmBtn{
+    cursor: pointer;
+    background: #174a8b;
+    width: 30%;
+    height: 50px;
+    font-size: 15pt;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
