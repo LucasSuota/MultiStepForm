@@ -1,26 +1,48 @@
-currentTab = 0
+//next step and previous step
 
-//jump through each step
-function nextStepBtn(n){
-    if(currentTab < 5){
-        currentTab = currentTab + n
-        let currentItem = document.querySelector('.step' + currentTab)
-        currentItem.classList.add('d-none')
-        nextTab = currentTab + 1
-        let nextItem = document.querySelector('.step' + nextTab)
-        nextItem.classList.remove('d-none')
+let currentTab = 0;
+
+const nextStepBtn = n => {
+
+    if(currentTab <= 3){
+
+        currentTab = currentTab + n;
+        nextTab = currentTab + 1;
+
+        console.log(currentTab, nextTab)
+
+        const currentItem = document.querySelector('.step' + currentTab);
+        const nextItem = document.querySelector('.step' + nextTab);
+
+        currentItem.classList.add('d-none');
+        nextItem.classList.remove('d-none');
+
     }
-    
-    //show goBackBtn
+
     if(currentTab > 0){
-        const goBackBtn = document.querySelector('.goBackBtn')
-        goBackBtn.classList.remove('d-none')
-    }
+
+        const goBackBtn = document.querySelector('.goBackBtn');
+
+        goBackBtn.classList.remove('d-none');
+
+    }   
+
 }
 
-function goBackBtn(n){
-    const currentItem = document.querySelector('.step' + currentTab)
-    currentItem.classList.remove('d-none')
-    const nextItem = document.querySelector('.step' + n)
-    nextItem.classList.add('d-none')
+const goBackBtn = n => {
+
+    currentTab = currentTab + n;
+    previousTab = currentTab + 1;
+    nextTab = previousTab + 1;
+
+    console.log(currentTab, previousTab, nextTab)
+
+    const currentItem = document.querySelector('.step' + currentTab);
+    const previousItem = document.querySelector('.step' + previousTab);
+    const nextItem = document.querySelector('.step' + nextTab);
+
+    currentItem.classList.add('d-none');
+    previousItem.classList.remove('d-none');
+    nextItem.classList.add('d-none');
+
 }
