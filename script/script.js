@@ -1,48 +1,37 @@
-//next step and previous step
+//jumping through each step.
 
-let currentTab = 0;
+let stepPosition = [1, 2];
 
-const nextStepBtn = n => {
+const nextStep = (number) => {  
 
-    if(currentTab <= 3){
+    const previousTab = document.querySelector('.step' + stepPosition[0]);
+    const currentTab = document.querySelector('.step' + stepPosition[1]);
 
-        currentTab = currentTab + n;
-        nextTab = currentTab + 1;
+    previousTab.classList.add('d-none');
+    currentTab.classList.remove('d-none');
 
-        console.log(currentTab, nextTab)
+    if(stepPosition[0] < 4){
 
-        const currentItem = document.querySelector('.step' + currentTab);
-        const nextItem = document.querySelector('.step' + nextTab);
-
-        currentItem.classList.add('d-none');
-        nextItem.classList.remove('d-none');
+        stepPosition[0] = stepPosition[0] + number;
+        stepPosition[1] = stepPosition[0] + number;
 
     }
 
-    if(currentTab > 0){
+};
 
-        const goBackBtn = document.querySelector('.goBackBtn');
+const previousStep = (number) => {
 
-        goBackBtn.classList.remove('d-none');
+    const previousTab = document.querySelector('.step' + stepPosition[0]);
+    const currentTab = document.querySelector('.step' + stepPosition[1]);
 
-    }   
+    previousTab.classList.remove('d-none');
+    currentTab.classList.add('d-none');
 
-}
+    if(stepPosition[0] > 1){
 
-const goBackBtn = n => {
+        stepPosition[0] = stepPosition[0] + number;
+        stepPosition[1] = stepPosition[0] - number;
 
-    currentTab = currentTab + n;
-    previousTab = currentTab + 1;
-    nextTab = previousTab + 1;
+    }
 
-    console.log(currentTab, previousTab, nextTab)
-
-    const currentItem = document.querySelector('.step' + currentTab);
-    const previousItem = document.querySelector('.step' + previousTab);
-    const nextItem = document.querySelector('.step' + nextTab);
-
-    currentItem.classList.add('d-none');
-    previousItem.classList.remove('d-none');
-    nextItem.classList.add('d-none');
-
-}
+};
