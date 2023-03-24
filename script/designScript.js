@@ -20,6 +20,17 @@ const nextStep = (number) => {
     previousStep.classList.add('stepActive');
     currentStep.classList.remove('stepActive');
     
+    //get the number position to show the confirmation button
+
+    if(stepPosition[1] == 4){
+
+        const nextStepBtn = document.querySelector('.nextStepBtn');
+        const confirmationBtn = document.querySelector('.confirmationBtn');
+
+        nextStepBtn.classList.add('d-none');
+        confirmationBtn.classList.remove('d-none')
+
+    }
 
     if(stepPosition[0] < 3){
 
@@ -47,6 +58,18 @@ const previousStep = (number) => {
 
     previousStep.classList.remove('stepActive');
     currentStep.classList.add('stepActive');
+
+    //get the number position to show the confirmation button
+
+    if(stepPosition[1] <= 4){
+
+        const nextStepBtn = document.querySelector('.nextStepBtn')
+        const confirmationBtn = document.querySelector('.confirmationBtn');
+
+        nextStepBtn.classList.remove('d-none')
+        confirmationBtn.classList.add('d-none')
+
+    }
 
     if(stepPosition[0] > 1){
 

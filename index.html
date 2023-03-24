@@ -8,7 +8,7 @@
   <link rel="icon" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./style/general.css">
   <link rel="stylesheet" href="./style/rightArea.css">
-  <script src="script/script.js" defer></script>
+  <script src="script/designScript.js" defer></script>
 </head>
 <body>
   <div class="multiStepFormContainer">
@@ -207,11 +207,11 @@
           <div class="btnArea">
             <button class="goBackBtn" onclick="previousStep(-1)">Go Back</button>
             <button class="nextStepBtn" onclick="nextStep(1)">Next Step</button>
+            <button class="confirmationBtn d-none" onclick="sendInformation()">Confirm</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
 </body>
 </html>
