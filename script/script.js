@@ -4,13 +4,22 @@ let stepPosition = [1, 2];
 
 const nextStep = (number) => {  
 
-    changeStepBackgroundColor()
+    //right area / user Area
 
     const previousTab = document.querySelector('.step' + stepPosition[0]);
     const currentTab = document.querySelector('.step' + stepPosition[1]);
 
     previousTab.classList.add('d-none');
     currentTab.classList.remove('d-none');
+
+    //left area / step number
+
+    const previousStep = document.querySelector('.step-' + stepPosition[1]);
+    const currentStep = document.querySelector('.step-' + stepPosition[0]);
+
+    previousStep.classList.add('stepActive');
+    currentStep.classList.remove('stepActive');
+    
 
     if(stepPosition[0] < 3){
 
@@ -23,13 +32,21 @@ const nextStep = (number) => {
 
 const previousStep = (number) => {
 
-    changeStepBackgroundColor()
+    //right area / user Area
 
     const previousTab = document.querySelector('.step' + stepPosition[0]);
     const currentTab = document.querySelector('.step' + stepPosition[1]);
 
     previousTab.classList.remove('d-none');
     currentTab.classList.add('d-none');
+
+    //left area / step number
+
+    const previousStep = document.querySelector('.step-' + stepPosition[1]);
+    const currentStep = document.querySelector('.step-' + stepPosition[0]);
+
+    previousStep.classList.remove('stepActive');
+    currentStep.classList.add('stepActive');
 
     if(stepPosition[0] > 1){
 
@@ -39,18 +56,3 @@ const previousStep = (number) => {
     }
 
 };
-
-//changing steps color
-
-const changeStepBackgroundColor = () => {
-    
-    const previousStep = document.querySelector('.step-' + stepPosition[0])
-    const currentStep = document.querySelector('.step-' + stepPosition[1])
-
-    previousStep.style.backgroundColor = 'white'
-    previousStep.style.color = '#174a8b'
-
-    currentStep.style.backgroundColor = 'white'
-    currentStep.style.color = '#174a8b'
-
-}
