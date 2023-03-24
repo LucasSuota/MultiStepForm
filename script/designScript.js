@@ -28,7 +28,16 @@ const nextStep = (number) => {
         const confirmationBtn = document.querySelector('.confirmationBtn');
 
         nextStepBtn.classList.add('d-none');
-        confirmationBtn.classList.remove('d-none')
+        confirmationBtn.classList.remove('d-none');
+
+    }
+
+    //show go back button
+
+    if(stepPosition[0] >= 1){
+
+        const goBackBtn = document.querySelector('.goBackBtn');
+        goBackBtn.classList.remove('d-none');
 
     }
 
@@ -63,11 +72,20 @@ const previousStep = (number) => {
 
     if(stepPosition[1] <= 4){
 
-        const nextStepBtn = document.querySelector('.nextStepBtn')
+        const nextStepBtn = document.querySelector('.nextStepBtn');
         const confirmationBtn = document.querySelector('.confirmationBtn');
 
-        nextStepBtn.classList.remove('d-none')
-        confirmationBtn.classList.add('d-none')
+        nextStepBtn.classList.remove('d-none');
+        confirmationBtn.classList.add('d-none');
+
+    }
+
+    //hide go back button
+
+    if(stepPosition[0] == 1){
+
+        const goBackBtn = document.querySelector('.goBackBtn');
+        goBackBtn.classList.add('d-none');
 
     }
 
@@ -79,3 +97,17 @@ const previousStep = (number) => {
     }
 
 };
+
+//confirmation area
+
+const sendInformation = () => {
+
+    const lastTab = document.querySelector('.lastStep');
+    const lastButOne = document.querySelector('.step' + stepPosition[1]);
+    const btnArea = document.querySelector('.btnArea');
+
+    lastTab.classList.remove('d-none');
+    lastButOne.classList.add('d-none');
+    btnArea.classList.add('d-none')
+
+}
