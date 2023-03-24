@@ -20,6 +20,26 @@ const nextStep = (number) => {
     previousStep.classList.add('stepActive');
     currentStep.classList.remove('stepActive');
     
+    //get the number position to show the confirmation button
+
+    if(stepPosition[1] == 4){
+
+        const nextStepBtn = document.querySelector('.nextStepBtn');
+        const confirmationBtn = document.querySelector('.confirmationBtn');
+
+        nextStepBtn.classList.add('d-none');
+        confirmationBtn.classList.remove('d-none');
+
+    }
+
+    //show go back button
+
+    if(stepPosition[0] >= 1){
+
+        const goBackBtn = document.querySelector('.goBackBtn');
+        goBackBtn.classList.remove('d-none');
+
+    }
 
     if(stepPosition[0] < 3){
 
@@ -48,6 +68,27 @@ const previousStep = (number) => {
     previousStep.classList.remove('stepActive');
     currentStep.classList.add('stepActive');
 
+    //get the number position to show the confirmation button
+
+    if(stepPosition[1] <= 4){
+
+        const nextStepBtn = document.querySelector('.nextStepBtn');
+        const confirmationBtn = document.querySelector('.confirmationBtn');
+
+        nextStepBtn.classList.remove('d-none');
+        confirmationBtn.classList.add('d-none');
+
+    }
+
+    //hide go back button
+
+    if(stepPosition[0] == 1){
+
+        const goBackBtn = document.querySelector('.goBackBtn');
+        goBackBtn.classList.add('d-none');
+
+    }
+
     if(stepPosition[0] > 1){
 
         stepPosition[0] = stepPosition[0] + number;
@@ -56,3 +97,17 @@ const previousStep = (number) => {
     }
 
 };
+
+//confirmation area
+
+const sendInformation = () => {
+
+    const lastTab = document.querySelector('.lastStep');
+    const lastButOne = document.querySelector('.step' + stepPosition[1]);
+    const btnArea = document.querySelector('.btnArea');
+
+    lastTab.classList.remove('d-none');
+    lastButOne.classList.add('d-none');
+    btnArea.classList.add('d-none')
+
+}

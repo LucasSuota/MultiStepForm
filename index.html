@@ -8,7 +8,8 @@
   <link rel="icon" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./style/general.css">
   <link rel="stylesheet" href="./style/rightArea.css">
-  <script src="script/script.js" defer></script>
+  <script src="script/designScript.js" defer></script>
+  <script src="script/getInformation.js" defer></script>
 </head>
 <body>
   <div class="multiStepFormContainer">
@@ -62,7 +63,7 @@
               </div>
               <div class="userInputs">
                 <p>Email Address</p>
-                <input class="userEmail" placeholder="e.g. stephenking@lorem.com" type="text">
+                <input class="userEmail" placeholder="e.g. stephenking@lorem.com" type="email">
               </div>
               <div class="userInputs">
                 <p>Phone Number</p>
@@ -79,21 +80,21 @@
               <h2>You have the option of monthly or yearly billing.</h2>
             </div>
             <div class="planOptions">
-              <div class="planDivision">
+              <div class="planDivision" data-plan="arcade">
                 <img src="./assets/images/icon-arcade.svg" alt="arcadeOption">
                 <div class="titlePrice">
                   <p>Arcade</p>
                   <p>price</p>
                 </div>
               </div>
-              <div class="planDivision">
+              <div class="planDivision" data-plan="advanced">
                 <img src="./assets/images/icon-advanced.svg" alt="advancedOption">
                 <div class="titlePrice">
                   <p>Advanced</p>
                   <p>price</p>
                 </div>
               </div>
-              <div class="planDivision">
+              <div class="planDivision" data-plan="pro">
                 <img src="./assets/images/icon-pro.svg" alt="proOption">
                 <div class="titlePrice">
                   <p>Pro</p>
@@ -205,13 +206,13 @@
             </div>
           </div>
           <div class="btnArea">
-            <button class="goBackBtn" onclick="previousStep(-1)">Go Back</button>
+            <button class="goBackBtn d-none" onclick="previousStep(-1)">Go Back</button>
             <button class="nextStepBtn" onclick="nextStep(1)">Next Step</button>
+            <button class="confirmationBtn d-none" onclick="sendInformation()">Confirm</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
 </body>
 </html>
