@@ -1,19 +1,20 @@
 //plan selection
 
-class SelectPlanUI{
+class GeneralUI{
 
     itemOptions = document.querySelectorAll(".planDivision");
+    titlesPrice = document.querySelectorAll('.titlePrice');
     billingBtn = document.querySelector('.checkboxItem');
 
     //check checkbox
 
     checkboxValidation(){
 
-            if(this.billingBtn.checked == true){
-                return true;
-            } else {
-                return false;
-            }
+        if(this.billingBtn.checked == true){
+            return true;
+        } else {
+            return false;
+        }
         
     }
 
@@ -38,11 +39,11 @@ class SelectPlanUI{
 
         let itemsPrice = document.querySelectorAll('.itemPrice');
 
+        //add text
+
         this.billingBtn.onclick = () => {
 
-            //add text
-
-            this.itemOptions.forEach(item => {
+            this.titlesPrice.forEach(item => {
 
                 const freeMonthsMessage = document.createElement('p');
 
@@ -65,7 +66,7 @@ class SelectPlanUI{
 
             itemsPrice.forEach(values => {
     
-                const itemValue = JSON.parse(values.innerHTML.replace('$', '').replace('/mo', '').replace('/yr', ''));
+                const itemValue = JSON.parse(values.innerHTML.replace('+', '').replace('$', '').replace('/mo', '').replace('/yr', ''));
 
                 if(this.checkboxValidation() == true){
                     const value = itemValue * 10;
@@ -83,7 +84,35 @@ class SelectPlanUI{
 
 }
 
-const selectPlan = new SelectPlanUI
+class GetInformation extends GeneralUI{
+
+    getUserData(){
+
+        const userName = document.querySelector('.userName');
+        const userEmail = document.querySelector('.userEmail');
+        const userPhoneNumber = document.querySelector('.userPhoneNumber');
+
+        const user = {
+            name: userName,
+            email: userEmail,
+            phone: userPhoneNumber
+        }
+
+    }
+
+    planSelected(){
+
+        if(this.checkboxValidation == true){
+            return 1
+        } else {
+            return 2
+        }
+
+    }
+
+}
+
+const selectPlan = new GeneralUI
 
 selectPlan.backgroundColorSelection();
 selectPlan.updateValueAndText();
