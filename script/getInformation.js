@@ -1,13 +1,13 @@
 //plan selection
 
-class SelectPlan{
+class SelectPlanUI{
 
     itemOptions = document.querySelectorAll(".planDivision");
     billingBtn = document.querySelector('.checkboxItem');
 
     //check checkbox
 
-    checkbox(){
+    checkboxValidation(){
 
             if(this.billingBtn.checked == true){
                 return true;
@@ -34,9 +34,13 @@ class SelectPlan{
 
     //updates values monthly and yearly and add text '2 months free'
 
-    updateValues(){
+    updateValueAndText(){
+
+        let itemsPrice = document.querySelectorAll('.itemPrice');
 
         this.billingBtn.onclick = () => {
+
+            //add text
 
             this.itemOptions.forEach(item => {
 
@@ -45,22 +49,41 @@ class SelectPlan{
                 freeMonthsMessage.innerHTML = '2 months free';
                 freeMonthsMessage.classList.add('freeMonthsText');
             
-                if(this.checkbox() == true){
+                if(this.checkboxValidation() == true){
 
                     item.appendChild(freeMonthsMessage);
 
                 } else {
 
-                    document.querySelector('.freeMonthsText').remove()
+                    document.querySelector('.freeMonthsText').remove();
 
                 }
 
             });
+
+            //change value monthly yearly
+
+            itemsPrice.forEach(values => {
+    
+                const itemValue = JSON.parse(values.innerHTML.replace('$', '').replace('/mo', '').replace('/yr', ''));
+
+                if(this.checkboxValidation() == true){
+                    const value = itemValue * 10;
+                    values.innerHTML = `$${value}/yr`;
+                } else {
+                    const value = itemValue / 10
+                    values.innerHTML = `$${value}/mo`;
+                }
+
+            });
+                    
         }
+            
     }
+
 }
 
-const selectPlan = new SelectPlan;
+const selectPlan = new SelectPlanUI
 
 selectPlan.backgroundColorSelection();
-selectPlan.updateValues();
+selectPlan.updateValueAndText();
