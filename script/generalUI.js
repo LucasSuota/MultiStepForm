@@ -38,34 +38,26 @@ class GeneralUI{
     updateValueAndText(){
 
         let itemsPrice = document.querySelectorAll('.itemPrice');
-
+        let planSelected = document.querySelector('.planSelected p');
         //add text
 
         this.billingBtn.onclick = () => {
-
             this.titlesPrice.forEach(item => {
-
                 const freeMonthsMessage = document.createElement('p');
 
                 freeMonthsMessage.innerHTML = '2 months free';
                 freeMonthsMessage.classList.add('freeMonthsText');
             
                 if(this.checkboxValidation() == true){
-
                     item.appendChild(freeMonthsMessage);
-
                 } else {
-
                     document.querySelector('.freeMonthsText').remove();
-
                 }
-
             });
 
             //change value monthly yearly
 
             itemsPrice.forEach(values => {
-    
                 const itemValue = JSON.parse(values.innerHTML.replace('+', '').replace('$', '').replace('/mo', '').replace('/yr', ''));
 
                 if(this.checkboxValidation() == true){
@@ -75,38 +67,38 @@ class GeneralUI{
                     const value = itemValue / 10
                     values.innerHTML = `$${value}/mo`;
                 }
+            });      
 
-            });
-                    
-        }
-            
+        }       
     }
+
+
 
 }
 
 class GetInformation extends GeneralUI{
 
-    getUserData(){
+    getUserInfo(){
 
         const userName = document.querySelector('.userName');
         const userEmail = document.querySelector('.userEmail');
         const userPhoneNumber = document.querySelector('.userPhoneNumber');
 
         const user = {
+
             name: userName,
             email: userEmail,
             phone: userPhoneNumber
+
         }
 
     }
 
-    planSelected(){
+    getUserSelectedPlan(){
 
-        if(this.checkboxValidation == true){
-            return 1
-        } else {
-            return 2
-        }
+        this.itemOptions.forEach(item => {
+            console.log(item.dataset.plan);
+        });
 
     }
 
