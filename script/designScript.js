@@ -7,7 +7,7 @@ const nextStep = (number) => {
     //right area / user Area
     if(userInformationValidation() == 0){
 
-        alert(`Some fields haven't been filled`)
+        alert(`Some fields haven't been filled yet!`)
 
     } else {
 
