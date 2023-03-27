@@ -5,56 +5,48 @@ let stepPosition = [1, 2];
 const nextStep = (number) => {  
 
     //right area / user Area
-    if(userInformationValidation() == 0){
 
-        alert(`Some fields haven't been filled yet!`)
+    const previousTab = document.querySelector('.step' + stepPosition[0]);
+    const currentTab = document.querySelector('.step' + stepPosition[1]);
 
-    } else {
+    previousTab.classList.add('d-none');
+    currentTab.classList.remove('d-none');
 
-        const previousTab = document.querySelector('.step' + stepPosition[0]);
-        const currentTab = document.querySelector('.step' + stepPosition[1]);
+    //left area / step number
 
-        previousTab.classList.add('d-none');
-        currentTab.classList.remove('d-none');
+    const previousStep = document.querySelector('.step-' + stepPosition[1]);
+    const currentStep = document.querySelector('.step-' + stepPosition[0]);
 
-        //left area / step number
-
-        const previousStep = document.querySelector('.step-' + stepPosition[1]);
-        const currentStep = document.querySelector('.step-' + stepPosition[0]);
-
-        previousStep.classList.add('stepActive');
-        currentStep.classList.remove('stepActive');
+    previousStep.classList.add('stepActive');
+    currentStep.classList.remove('stepActive');
     
-        //get the number position to show the confirmation button
+    //get the number position to show the confirmation button
 
-        if(stepPosition[1] == 4){
+    if(stepPosition[1] == 4){
 
-            const nextStepBtn = document.querySelector('.nextStepBtn');
-            const confirmationBtn = document.querySelector('.confirmationBtn');
+        const nextStepBtn = document.querySelector('.nextStepBtn');
+        const confirmationBtn = document.querySelector('.confirmationBtn');
 
-            nextStepBtn.classList.add('d-none');
-            confirmationBtn.classList.remove('d-none');
-
-        }
-
-        //show go back button
-
-        if(stepPosition[0] >= 1){
-
-            const goBackBtn = document.querySelector('.goBackBtn');
-            goBackBtn.classList.remove('d-none');
-
-        }
-
-        if(stepPosition[0] < 3){
-
-            stepPosition[0] = stepPosition[0] + number;
-            stepPosition[1] = stepPosition[0] + number;
-
-        }
+        nextStepBtn.classList.add('d-none');
+        confirmationBtn.classList.remove('d-none');
 
     }
-    
+
+    //show go back button
+
+    if(stepPosition[0] >= 1){
+
+        const goBackBtn = document.querySelector('.goBackBtn');
+        goBackBtn.classList.remove('d-none');
+
+    }
+
+    if(stepPosition[0] < 3){
+
+        stepPosition[0] = stepPosition[0] + number;
+        stepPosition[1] = stepPosition[0] + number;
+
+    }
 
 };
 
@@ -120,16 +112,3 @@ const sendInformation = () => {
 
 }
 
-//personal info fields validation 
-
-const userInformationValidation = () => {
-
-    const userName = document.querySelector('.userName').value;
-    const userEmail = document.querySelector('.userEmail').value;
-    const userPhoneNumber = document.querySelector('.userPhoneNumber').value;
-
-    if(userName == '' || userEmail == '' || userPhoneNumber == ''){
-        return 0
-    }
-
-}
