@@ -38,7 +38,7 @@ class GeneralUI{
 
     }
 
-    updateSummary(plan, price){
+    displayChosenPlan(plan, price){
 
         //plan
  
@@ -48,7 +48,7 @@ class GeneralUI{
         
         //plan price
 
-        const prices = document.querySelector('.itemValue p');
+        const prices = document.querySelector('.planValue p');
         
         if(this.checkboxValidation() == true){
             prices.innerHTML = `$${price * 10}/yr`
@@ -56,14 +56,36 @@ class GeneralUI{
             prices.innerHTML = `$${price}/mo`
         }
         
+    }
 
-        //add ons
+    //add ons
 
+    addonSelection(){
 
+        const addonsList = document.querySelectorAll('.userAddons');
+
+        addonsList.forEach(btn => {
+            btn.onclick = () => {
+                const checkbox = btn.querySelector('input');
+                const addonTitle = btn.querySelector('.addonTitle');
+                
+                if(checkbox.checked == true){
+                    userInformation.findAddon(addonTitle.dataset.addon);
+                }
+            }
+        });
+        
+    }
+
+    displayAddon(addon, price){
+
+        console.log(addon, price);
+
+    }
 
         //total
 
-    }
+    
 
     //updates values monthly and yearly and add text '2 months free'
 
@@ -120,7 +142,15 @@ class GettingInformation extends GeneralUI{
         
     ]
 
-    personalInfo(){
+    addonsList = [
+
+        {name: 'Online-Service', price: 1},
+        {name: 'Larger-Storage', price: 2},
+        {name: 'Customizable-Profile', price: 2}
+
+    ]
+
+    getUserInfo(){
 
         const user = {
 
@@ -140,11 +170,19 @@ class GettingInformation extends GeneralUI{
             return plan.name == planName;
         });
 
-        selectPlan.updateSummary(planChosen[0].name, planChosen[0].price);
+        selectPlan.displayChosenPlan(planChosen[0].name, planChosen[0].price);
 
     }
 
-    addOns(){}
+    findAddon(name){
+
+        const addonItem = this.addonsList.filter(item => {
+            return item.name === name
+        });
+        
+        selectPlan.displayAddon(addonItem[0].name, addonItem[0].price)
+
+    }
 
 }
 
@@ -154,4 +192,5 @@ const selectPlan = new GeneralUI;
 
 selectPlan.updateValueAndText();
 selectPlan.planSelection();
+selectPlan.addonSelection();
 
