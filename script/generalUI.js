@@ -20,7 +20,7 @@ class GeneralUI{
 
     //change background color
 
-    backgroundColorSelection(){
+    planSelection(){
 
         this.itemOptions.forEach(btn => {
             btn.onclick = () => {
@@ -28,8 +28,26 @@ class GeneralUI{
                     item.style.background = 'white';
                 });
                 btn.style.background = '#eef5ff';
+                this.updateSummary(btn.dataset.plan);
             }
         });
+
+    }
+
+    updateSummary(plan){
+
+        //plan
+
+        const planChosen = document.querySelector('.planSelected p');
+        
+        planChosen.innerHTML = `${plan}`;
+        
+        //add ons
+
+
+        //total
+
+
 
     }
 
@@ -38,7 +56,7 @@ class GeneralUI{
     updateValueAndText(){
 
         let itemsPrice = document.querySelectorAll('.itemPrice');
-        let planSelected = document.querySelector('.planSelected p');
+
         //add text
 
         this.billingBtn.onclick = () => {
@@ -72,39 +90,10 @@ class GeneralUI{
         }       
     }
 
-
-
-}
-
-class GetInformation extends GeneralUI{
-
-    getUserInfo(){
-
-        const userName = document.querySelector('.userName');
-        const userEmail = document.querySelector('.userEmail');
-        const userPhoneNumber = document.querySelector('.userPhoneNumber');
-
-        const user = {
-
-            name: userName,
-            email: userEmail,
-            phone: userPhoneNumber
-
-        }
-
-    }
-
-    getUserSelectedPlan(){
-
-        this.itemOptions.forEach(item => {
-            console.log(item.dataset.plan);
-        });
-
-    }
-
 }
 
 const selectPlan = new GeneralUI
 
-selectPlan.backgroundColorSelection();
 selectPlan.updateValueAndText();
+selectPlan.planSelection();
+
