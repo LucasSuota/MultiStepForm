@@ -63,18 +63,19 @@ class GeneralUI{
     addonSelection(){
 
         const addonsList = document.querySelectorAll('.userAddons');
+        const checkboxClick = document.querySelectorAll('.userAddons input');
 
         addonsList.forEach(btn => {
+            const addonName = btn.querySelector('.addonTitle');
             btn.onclick = () => {
-                const checkbox = btn.querySelector('input');
-                const addonTitle = btn.querySelector('.addonTitle');
-                
-                if(checkbox.checked == true){
-                    userInformation.findAddon(addonTitle.dataset.addon);
-                }
+                checkboxClick.forEach(item => {
+                    if(item.checked == true){
+                        userInformation.addAddon(addonName.dataset.addon);
+                    }
+                });
+                console.log(userInformation.usersSelectedAddons)
             }
         });
-        
     }
 
     displayAddon(addon, price){
@@ -150,6 +151,8 @@ class GettingInformation extends GeneralUI{
 
     ]
 
+    usersSelectedAddons = [];
+
     getUserInfo(){
 
         const user = {
@@ -174,13 +177,23 @@ class GettingInformation extends GeneralUI{
 
     }
 
-    findAddon(name){
+    addAddon(addon){
 
-        const addonItem = this.addonsList.filter(item => {
-            return item.name === name
-        });
-        
-        selectPlan.displayAddon(addonItem[0].name, addonItem[0].price)
+        const filteredAddons = this.addonsList.filter(item => {
+            return item.name == addon;
+        })
+
+        this.usersSelectedAddons.push(filteredAddons);
+
+    }
+
+    removeAddon(addon){
+
+        const filteredAddons = this.usersSelectedAddons.filter(item => {
+            return item.name == addon;
+        })
+
+        this.usersSelectedAddons.pop(filteredAddons);
 
     }
 
