@@ -65,24 +65,21 @@ class GeneralUI{
         const addonsList = document.querySelectorAll('.userAddons');
         const checkboxClick = document.querySelectorAll('.userAddons input');
 
-        addonsList.forEach(btn => {
-            const addonName = btn.querySelector('.addonTitle');
-            btn.onclick = () => {
-                checkboxClick.forEach(item => {
-                    if(item.checked == true){
-                        userInformation.addAddon(addonName.dataset.addon);
-                    }
-                });
-                console.log(userInformation.usersSelectedAddons)
+        checkboxClick.forEach(item => {
+            item.onclick = () => {
+                if(item.checked == true){
+                    const addonItemName = item.parentElement.querySelector('.addonTitle');
+                    userInformation.addAddon(addonItemName.dataset.addon);
+                } 
+                // else {
+                //     userInformation.removeAddon()
+                // }
             }
-        });
-    }
-
-    displayAddon(addon, price){
-
-        console.log(addon, price);
+        })
 
     }
+
+
 
         //total
 
@@ -151,7 +148,7 @@ class GettingInformation extends GeneralUI{
 
     ]
 
-    usersSelectedAddons = [];
+    selectedAddons = []
 
     getUserInfo(){
 
@@ -179,22 +176,15 @@ class GettingInformation extends GeneralUI{
 
     addAddon(addon){
 
-        const filteredAddons = this.addonsList.filter(item => {
-            return item.name == addon;
+        console.log(addon)
+
+        this.selectedAddons.forEach(item => {
+            if(item.name != addon){
+                this.selectedAddons.push(addon)
+            }
         })
 
-        this.usersSelectedAddons.push(filteredAddons);
-
-    }
-
-    removeAddon(addon){
-
-        const filteredAddons = this.usersSelectedAddons.filter(item => {
-            return item.name == addon;
-        })
-
-        this.usersSelectedAddons.pop(filteredAddons);
-
+        console.log(this.selectedAddons)
     }
 
 }
