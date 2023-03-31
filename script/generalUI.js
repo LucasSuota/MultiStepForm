@@ -70,10 +70,10 @@ class GeneralUI{
                 if(item.checked == true){
                     const addonItemName = item.parentElement.querySelector('.addonTitle');
                     userInformation.addAddon(addonItemName.dataset.addon);
-                } 
-                // else {
-                //     userInformation.removeAddon()
-                // }
+                } else {
+                    const addonItemName = item.parentElement.querySelector('.addonTitle');
+                    userInformation.removeAddon(addonItemName.dataset.addon)
+                }
             }
         })
 
@@ -176,17 +176,27 @@ class GettingInformation extends GeneralUI{
 
     addAddon(addon){
 
-        console.log(addon)
-
-        this.selectedAddons.forEach(item => {
-            if(item.name != addon){
-                this.selectedAddons.push(addon)
-            }
+        const addonItem = this.addonsList.filter(item => {
+            return item.name == addon
         })
 
+        this.selectedAddons.push(addonItem)
+
         console.log(this.selectedAddons)
+
     }
 
+    removeAddon(addon){
+
+        const addonItem = this.selectedAddons.filter(item => {
+            return item[0].name == addon;
+        })
+
+        this.selectedAddons.splice(addonItem, 1)
+
+        console.log(this.selectedAddons);
+
+    }
 }
 
 
