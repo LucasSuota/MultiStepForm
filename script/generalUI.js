@@ -65,24 +65,21 @@ class GeneralUI{
         const addonsList = document.querySelectorAll('.userAddons');
         const checkboxClick = document.querySelectorAll('.userAddons input');
 
-        addonsList.forEach(btn => {
-            const addonName = btn.querySelector('.addonTitle');
-            btn.onclick = () => {
-                checkboxClick.forEach(item => {
-                    if(item.checked == true){
-                        userInformation.addAddon(addonName.dataset.addon);
-                    }
-                });
-                console.log(userInformation.usersSelectedAddons)
+        checkboxClick.forEach(item => {
+            item.onclick = () => {
+                if(item.checked == true){
+                    const addonItemName = item.parentElement.querySelector('.addonTitle');
+                    userInformation.addAddon(addonItemName.dataset.addon);
+                } else {
+                    const addonItemName = item.parentElement.querySelector('.addonTitle');
+                    userInformation.removeAddon(addonItemName.dataset.addon)
+                }
             }
-        });
-    }
-
-    displayAddon(addon, price){
-
-        console.log(addon, price);
+        })
 
     }
+
+
 
         //total
 
@@ -151,7 +148,7 @@ class GettingInformation extends GeneralUI{
 
     ]
 
-    usersSelectedAddons = [];
+    selectedAddons = []
 
     getUserInfo(){
 
@@ -179,24 +176,27 @@ class GettingInformation extends GeneralUI{
 
     addAddon(addon){
 
-        const filteredAddons = this.addonsList.filter(item => {
+        const addonItem = this.addonsList.filter(item => {
             return item.name == addon;
         })
 
-        this.usersSelectedAddons.push(filteredAddons);
+        this.selectedAddons.push(addonItem);
+
+        console.log(this.selectedAddons);
 
     }
 
     removeAddon(addon){
 
-        const filteredAddons = this.usersSelectedAddons.filter(item => {
-            return item.name == addon;
+        const addonItem = this.selectedAddons.filter(item => {
+            return item[0].name == addon;
         })
 
-        this.usersSelectedAddons.pop(filteredAddons);
+        console.log(addonItem[0])
+        this.selectedAddons.splice(this.selectedAddons.indexOf(addonItem[0]), 1);
+        console.log(this.selectedAddons)
 
     }
-
 }
 
 
