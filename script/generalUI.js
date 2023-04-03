@@ -177,12 +177,12 @@ class GettingInformation extends GeneralUI{
     addAddon(addon){
 
         const addonItem = this.addonsList.filter(item => {
-            return item.name == addon
+            return item.name == addon;
         })
 
-        this.selectedAddons.push(addonItem)
+        this.selectedAddons.push(addonItem);
 
-        console.log(this.selectedAddons)
+        console.log(this.selectedAddons);
 
     }
 
@@ -192,9 +192,9 @@ class GettingInformation extends GeneralUI{
             return item[0].name == addon;
         })
 
-        this.selectedAddons.splice(addonItem, 1)
-
-        console.log(this.selectedAddons);
+        console.log(addonItem[0])
+        this.selectedAddons.splice(this.selectedAddons.indexOf(addonItem[0]), 1);
+        console.log(this.selectedAddons)
 
     }
 }
