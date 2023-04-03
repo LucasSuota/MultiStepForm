@@ -70,15 +70,22 @@ class GeneralUI{
                 if(item.checked == true){
                     const addonItemName = item.parentElement.querySelector('.addonTitle');
                     userInformation.addAddon(addonItemName.dataset.addon);
+                    this.updateSummaryAddons(addonItemName.dataset.addon);
                 } else {
                     const addonItemName = item.parentElement.querySelector('.addonTitle');
                     userInformation.removeAddon(addonItemName.dataset.addon)
+                    this.updateSummaryAddons(addonItemName.dataset.addon);
                 }
             }
         })
-
     }
 
+    updateSummaryAddons(addonName){
+
+        const addon = addonName.replace('-', ' ');
+        const addonText = document.querySelectorAll('.addonsSelected p');
+        
+    }
 
 
         //total
@@ -124,11 +131,11 @@ class GeneralUI{
                 }
 
             });      
-
-        }       
+        }
     }
-
 }
+
+
 
 class GettingInformation extends GeneralUI{
 
@@ -192,7 +199,6 @@ class GettingInformation extends GeneralUI{
             return item[0].name == addon;
         })
 
-        console.log(addonItem[0])
         this.selectedAddons.splice(this.selectedAddons.indexOf(addonItem[0]), 1);
         console.log(this.selectedAddons)
 
