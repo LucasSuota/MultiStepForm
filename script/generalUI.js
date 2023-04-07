@@ -70,21 +70,52 @@ class GeneralUI{
                 if(item.checked == true){
                     const addonItemName = item.parentElement.querySelector('.addonTitle');
                     userInformation.addAddon(addonItemName.dataset.addon);
-                    this.updateSummaryAddons(addonItemName.dataset.addon);
+                    this.updateSummaryAddonsAdding(addonItemName.dataset.addon);
                 } else {
                     const addonItemName = item.parentElement.querySelector('.addonTitle');
-                    userInformation.removeAddon(addonItemName.dataset.addon)
-                    this.updateSummaryAddons(addonItemName.dataset.addon);
+                    userInformation.removeAddon(addonItemName.dataset.addon);
+                    this.updateSummaryAddonsRemoving(addonItemName.dataset.addon);
                 }
             }
         })
     }
 
-    updateSummaryAddons(addonName){
+    updateSummaryAddonsAdding(addonName){
 
-        const addon = addonName.replace('-', ' ');
-        const addonText = document.querySelectorAll('.addonsSelected p');
-        
+        const addonsAll = document.querySelectorAll('.addonsItems');
+        const filteredAddonName = addonName.replace('-', ' ');
+
+        addonsAll.forEach(item => {
+
+            if(item.querySelector('.addonsSelected p').innerHTML == filteredAddonName){
+                item.classList.remove('d-none')
+                console.log(item)
+            }
+
+        })
+
+        console.log(addonName);
+        console.log(filteredAddonName);
+
+    }
+
+    updateSummaryAddonsRemoving(addonName){
+
+        const addonsAll = document.querySelectorAll('.addonsItems');
+        const filteredAddonName = addonName.replace('-', ' ');
+
+        addonsAll.forEach(item => {
+
+            if(item.querySelector('.addonsSelected p').innerHTML == filteredAddonName){
+                item.classList.add('d-none')
+                console.log(item)
+            }
+
+        })
+
+        console.log(addonName);
+        console.log(filteredAddonName);
+
     }
 
 
@@ -189,8 +220,6 @@ class GettingInformation extends GeneralUI{
 
         this.selectedAddons.push(addonItem);
 
-        console.log(this.selectedAddons);
-
     }
 
     removeAddon(addon){
@@ -200,7 +229,6 @@ class GettingInformation extends GeneralUI{
         })
 
         this.selectedAddons.splice(this.selectedAddons.indexOf(addonItem[0]), 1);
-        console.log(this.selectedAddons)
 
     }
 }
