@@ -15,14 +15,15 @@ class GeneralUI{
         } else {
             return false;
         }
-        
+    
     }
 
-    //change background color
+    //change plan selection background color
 
     planSelection(){
 
         this.itemOptions.forEach(btn => {
+            this.checkboxValidation();
             btn.onclick = () => {
                 this.itemOptions.forEach(item => {
                     item.style.background = 'white';
@@ -30,11 +31,8 @@ class GeneralUI{
                 btn.style.background = '#eef5ff';
 
                 userInformation.selectPlan(btn.dataset.plan);
-                this.checkboxValidation();
-
             }
         });
-
 
     }
 
@@ -51,9 +49,9 @@ class GeneralUI{
         const prices = document.querySelector('.planValue p');
         
         if(this.checkboxValidation() == true){
-            prices.innerHTML = `$${price * 10}/yr`
+            prices.innerHTML = `$${price * 10}/yr`;
         } else {
-            prices.innerHTML = `$${price}/mo`
+            prices.innerHTML = `$${price}/mo`;
         }
         
     }
@@ -78,7 +76,10 @@ class GeneralUI{
                 }
             }
         })
+
     }
+
+    //update summary addons area, adding and removing it
 
     updateSummaryAddonsAdding(addonName){
 
@@ -117,11 +118,20 @@ class GeneralUI{
         console.log(filteredAddonName);
 
     }
-
-
-        //total
-
     
+    //update final value and text
+
+    updateFinal(){
+
+        const text = document.querySelector('.totalText');
+
+        if(this.checkboxValidation() == true){
+            text.innerHTML = 'Total yearly';
+        } else {
+            text.innerHTML = 'Total monthly';
+        }
+        
+    }
 
     //updates values monthly and yearly and add text '2 months free'
 
@@ -160,13 +170,12 @@ class GeneralUI{
                     const value = itemValue / 10;
                     values.innerHTML = `$${value}/mo`;
                 }
-
             });      
         }
+
     }
+
 }
-
-
 
 class GettingInformation extends GeneralUI{
 
@@ -232,7 +241,6 @@ class GettingInformation extends GeneralUI{
 
     }
 }
-
 
 const userInformation = new GettingInformation;
 const selectPlan = new GeneralUI;
