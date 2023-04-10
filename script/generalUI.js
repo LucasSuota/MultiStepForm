@@ -7,7 +7,8 @@ class GeneralUI{
     billingBtn = document.querySelector('.checkboxItem');
 
     features = {
-        plan: []
+        plan: [],
+        billing: false
     }
 
     //check checkbox
@@ -15,8 +16,10 @@ class GeneralUI{
     checkboxValidation(){
 
         if(this.billingBtn.checked == true){
+            this.features.billing = true;
             return true;
         } else {
+            this.features.billing = false;
             return false;
         }
     
@@ -24,11 +27,9 @@ class GeneralUI{
 
     //change plan selection background color
 
-
     planSelection(){
 
         this.itemOptions.forEach(btn => {
-            this.checkboxValidation();
             btn.onclick = () => {
                 this.itemOptions.forEach(item => {
                     item.style.background = 'white';
@@ -139,7 +140,7 @@ class GeneralUI{
         const finalValueItem = document.querySelector('.totalValuePrice');
         const totalValue = this.sumAllTheValues();
 
-        if(this.checkboxValidation() == true){
+        if(this.features.billing == true){
             finalValueItem.innerHTML = `$${totalValue * 10}/yr`
             text.innerHTML = 'Total yearly';
         } else {
@@ -223,7 +224,7 @@ class GeneralUI{
 
 }
 
-class GettingInformation extends GeneralUI{
+class GettingInformation{
 
     plansList = [
 
