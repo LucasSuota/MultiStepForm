@@ -6,6 +6,10 @@ class GeneralUI{
     titlesPrice = document.querySelectorAll('.titlePrice');
     billingBtn = document.querySelector('.checkboxItem');
 
+    features = {
+        plan: []
+    }
+
     //check checkbox
 
     checkboxValidation(){
@@ -20,6 +24,7 @@ class GeneralUI{
 
     //change plan selection background color
 
+
     planSelection(){
 
         this.itemOptions.forEach(btn => {
@@ -31,8 +36,21 @@ class GeneralUI{
                 btn.style.background = '#eef5ff';
 
                 userInformation.selectPlan(btn.dataset.plan);
+                this.selectedPlan(btn.dataset.plan)
             }
         });
+
+    }
+
+    //plan selected
+
+    selectedPlan(planName){
+
+        const selectedItem = userInformation.plansList.filter(planOption => {
+            return planOption.name == planName;
+        })
+
+        this.features.plan = selectedItem;
 
     }
 
@@ -60,7 +78,6 @@ class GeneralUI{
 
     addonSelection(){
 
-        const addonsList = document.querySelectorAll('.userAddons');
         const checkboxClick = document.querySelectorAll('.userAddons input');
 
         checkboxClick.forEach(item => {
@@ -74,6 +91,7 @@ class GeneralUI{
                     userInformation.removeAddon(addonItemName.dataset.addon);
                     this.updateSummaryAddonsRemoving(addonItemName.dataset.addon);
                 }
+                this.updateFinal()
             }
         })
 
@@ -90,13 +108,9 @@ class GeneralUI{
 
             if(item.querySelector('.addonsSelected p').innerHTML == filteredAddonName){
                 item.classList.remove('d-none')
-                console.log(item)
             }
 
         })
-
-        console.log(addonName);
-        console.log(filteredAddonName);
 
     }
 
@@ -109,13 +123,9 @@ class GeneralUI{
 
             if(item.querySelector('.addonsSelected p').innerHTML == filteredAddonName){
                 item.classList.add('d-none')
-                console.log(item)
             }
 
         })
-
-        console.log(addonName);
-        console.log(filteredAddonName);
 
     }
     
@@ -123,14 +133,50 @@ class GeneralUI{
 
     updateFinal(){
 
+        //text
+
         const text = document.querySelector('.totalText');
+        const finalValueItem = document.querySelector('.totalValuePrice');
+        const totalValue = this.sumAllTheValues();
 
         if(this.checkboxValidation() == true){
+            finalValueItem.innerHTML = `$${totalValue * 10}/yr`
             text.innerHTML = 'Total yearly';
         } else {
+            finalValueItem.innerHTML = `$${totalValue}/mo`;
             text.innerHTML = 'Total monthly';
         }
+
+        //getting all the values
+
         
+
+        
+    }
+
+    sumAllTheValues(){
+
+        //I'll have to get the userInformation.selectedAddons and their respective values
+        //after going to check the monthly yearly button and then create a function to sum all it
+        //and of course after it, get the plan value that I can do getting it in where the place is selected
+        //to be shown.
+
+        let sumItems = 0
+
+        //sum the addons' value
+
+        userInformation.selectedAddons.forEach(item => {
+        
+            sumItems += item[0].price;
+
+        });
+
+        //sum the plan value
+
+        sumItems += this.features.plan[0].price;
+
+        return sumItems;
+
     }
 
     //updates values monthly and yearly and add text '2 months free'
@@ -248,4 +294,3 @@ const selectPlan = new GeneralUI;
 selectPlan.updateValueAndText();
 selectPlan.planSelection();
 selectPlan.addonSelection();
-
