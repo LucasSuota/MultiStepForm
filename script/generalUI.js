@@ -1,3 +1,4 @@
+
 //plan selection
 
 class GeneralUI{
@@ -36,9 +37,7 @@ class GeneralUI{
                 });
                 btn.style.background = '#eef5ff';
 
-                userInformation.selectPlan(btn.dataset.plan);
                 this.selectedPlan(btn.dataset.plan);
-                this.updateFinal()
             }
         });
 
@@ -56,27 +55,24 @@ class GeneralUI{
 
     }
 
-    displayChosenPlan(plan, price){
+    //displaying the plan name and their respective price
 
-        //plan
- 
-        const planChosen = document.querySelector('.planSelected p');
-        
-        planChosen.innerHTML = `${plan}`;
-        
-        //plan price
+    displayingPlan(){
 
-        const prices = document.querySelector('.planValue p');
-        
+        const planTextArea = document.querySelector('.planSelected p');
+        const planPriceArea = document.querySelector('.planValue p');
+
         if(this.features.billing == true){
-            prices.innerHTML = `$${price * 10}/yr`;
+            planTextArea.innerHTML = `${this.features.plan[0].name} (yearly)`
+            planPriceArea.innerHTML = `$${this.features.plan[0].price * 10}/yr`
         } else {
-            prices.innerHTML = `$${price}/mo`;
+            planTextArea.innerHTML = `${this.features.plan[0].name} (monthly)`
+            planPriceArea.innerHTML = `$${this.features.plan[0].price}/mo`
         }
-        
+
     }
 
-    //add ons
+    //displaying addons
 
     addonSelection(){
 
@@ -147,24 +143,14 @@ class GeneralUI{
             finalValueItem.innerHTML = `$${totalValue}/mo`;
             text.innerHTML = 'Total monthly';
         }
-
-        //getting all the values
-
-        
-
         
     }
 
     sumAllTheValues(){
 
-        //I'll have to get the userInformation.selectedAddons and their respective values
-        //after going to check the monthly yearly button and then create a function to sum all it
-        //and of course after it, get the plan value that I can do getting it in where the place is selected
-        //to be shown.
-
         let sumItems = 0
 
-        //sum the addons' value
+        //sum the addons' values
 
         userInformation.selectedAddons.forEach(item => {
         
@@ -184,12 +170,11 @@ class GeneralUI{
 
     updateValueAndText(){
 
-        let itemsPrice = document.querySelectorAll('.itemPrice');
+        const itemsPrice = document.querySelectorAll('.itemPrice');
+
         //add text
 
         this.billingBtn.onclick = () => {
-
-            this.updateFinal()
 
             this.titlesPrice.forEach(item => {
 
@@ -260,16 +245,6 @@ class GettingInformation{
 
     }
 
-    selectPlan(planName){
-
-        const planChosen = this.plansList.filter(plan => {
-            return plan.name == planName;
-        });
-
-        selectPlan.displayChosenPlan(planChosen[0].name, planChosen[0].price);
-
-    }
-
     addAddon(addon){
 
         const addonItem = this.addonsList.filter(item => {
@@ -297,3 +272,4 @@ const selectPlan = new GeneralUI;
 selectPlan.updateValueAndText();
 selectPlan.planSelection();
 selectPlan.addonSelection();
+

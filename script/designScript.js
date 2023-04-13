@@ -4,6 +4,17 @@ let stepPosition = [1, 2];
 
 const nextStep = (number) => {  
 
+    //updating information
+
+    const rightTab = document.querySelector('.step3')
+
+    if(!rightTab.classList.contains('d-none')){
+
+        selectPlan.displayingPlan();
+        selectPlan.updateFinal();
+
+    }
+
     //right area / user Area
 
     const previousTab = document.querySelector('.step' + stepPosition[0]);
