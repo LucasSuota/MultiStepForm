@@ -37,7 +37,8 @@ class GeneralUI{
                 btn.style.background = '#eef5ff';
 
                 userInformation.selectPlan(btn.dataset.plan);
-                this.selectedPlan(btn.dataset.plan)
+                this.selectedPlan(btn.dataset.plan);
+                this.updateFinal()
             }
         });
 
@@ -67,7 +68,7 @@ class GeneralUI{
 
         const prices = document.querySelector('.planValue p');
         
-        if(this.checkboxValidation() == true){
+        if(this.features.billing == true){
             prices.innerHTML = `$${price * 10}/yr`;
         } else {
             prices.innerHTML = `$${price}/mo`;
@@ -92,7 +93,6 @@ class GeneralUI{
                     userInformation.removeAddon(addonItemName.dataset.addon);
                     this.updateSummaryAddonsRemoving(addonItemName.dataset.addon);
                 }
-                this.updateFinal()
             }
         })
 
@@ -189,6 +189,8 @@ class GeneralUI{
 
         this.billingBtn.onclick = () => {
 
+            this.updateFinal()
+
             this.titlesPrice.forEach(item => {
 
                 const freeMonthsMessage = document.createElement('p');
@@ -210,7 +212,7 @@ class GeneralUI{
 
                 const itemValue = JSON.parse(values.innerHTML.replace('+', '').replace('$', '').replace('/mo', '').replace('/yr', ''));
 
-                if(this.checkboxValidation() == true){
+                if(this.features.billing == true){
                     const value = itemValue * 10;
                     values.innerHTML = `$${value}/yr`;
                 } else {
