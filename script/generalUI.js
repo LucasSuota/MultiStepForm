@@ -231,7 +231,7 @@ class GettingInformation{
 
     selectedAddons = []
 
-    getUserInfo(){
+    gettingUserInfomartion(){
 
         const user = {
 
@@ -241,7 +241,7 @@ class GettingInformation{
 
         }
 
-        return user;
+        return user
 
     }
 
@@ -272,4 +272,5 @@ const selectPlan = new GeneralUI;
 selectPlan.updateValueAndText();
 selectPlan.planSelection();
 selectPlan.addonSelection();
+
 

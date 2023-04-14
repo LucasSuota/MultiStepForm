@@ -15,25 +15,33 @@ const nextStep = (number) => {
 
     }
 
+    const userName = document.querySelector('.userName');
+    const userEmail = document.querySelector('.userEmail');
+    const userPhoneNumber = document.querySelector('.userPhoneNumber');
+
+    if(userName.value == '' || userEmail.value == '' || userPhoneNumber.value == ''){
+        alert('You must fill the required fields!');
+    }else{
+        
     //right area / user Area
 
-    const previousTab = document.querySelector('.step' + stepPosition[0]);
-    const currentTab = document.querySelector('.step' + stepPosition[1]);
+        const previousTab = document.querySelector('.step' + stepPosition[0]);
+        const currentTab = document.querySelector('.step' + stepPosition[1]);
 
-    previousTab.classList.add('d-none');
-    currentTab.classList.remove('d-none');
+        previousTab.classList.add('d-none');
+        currentTab.classList.remove('d-none');
 
-    //left area / step number
+        //left area / step number
 
-    const previousStep = document.querySelector('.step-' + stepPosition[1]);
-    const currentStep = document.querySelector('.step-' + stepPosition[0]);
+        const previousStep = document.querySelector('.step-' + stepPosition[1]);
+        const currentStep = document.querySelector('.step-' + stepPosition[0]);
 
-    previousStep.classList.add('stepActive');
-    currentStep.classList.remove('stepActive');
+        previousStep.classList.add('stepActive');
+        currentStep.classList.remove('stepActive');
     
-    //get the number position to show the confirmation button
+        //get the number position to show the confirmation button
 
-    if(stepPosition[1] == 4){
+        if(stepPosition[1] == 4){
 
         const nextStepBtn = document.querySelector('.nextStepBtn');
         const confirmationBtn = document.querySelector('.confirmationBtn');
@@ -41,23 +49,27 @@ const nextStep = (number) => {
         nextStepBtn.classList.add('d-none');
         confirmationBtn.classList.remove('d-none');
 
-    }
+        }
 
-    //show go back button
+        //show go back button
 
-    if(stepPosition[0] >= 1){
+        if(stepPosition[0] >= 1){
 
         const goBackBtn = document.querySelector('.goBackBtn');
         goBackBtn.classList.remove('d-none');
 
-    }
+        }
 
-    if(stepPosition[0] < 3){
+        if(stepPosition[0] < 3){
 
         stepPosition[0] = stepPosition[0] + number;
         stepPosition[1] = stepPosition[0] + number;
 
+        }
+
     }
+
+    
 
 };
 
