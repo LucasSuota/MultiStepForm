@@ -69,8 +69,6 @@ const nextStep = (number) => {
 
     }
 
-    
-
 };
 
 const previousStep = (number) => {
@@ -134,4 +132,5 @@ const sendInformation = () => {
     btnArea.classList.add('d-none')
 
 }
+
 
