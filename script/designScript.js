@@ -124,12 +124,15 @@ const previousStep = (number) => {
 const sendInformation = () => {
 
     const lastTab = document.querySelector('.lastStep');
-    const lastButOne = document.querySelector('.step' + stepPosition[1]);
+    const lastButOne = document.querySelector('.rightAreaAll');
     const btnArea = document.querySelector('.btnArea');
+    const rightArea = document.querySelector('.rightArea');
 
     lastTab.classList.remove('d-none');
     lastButOne.classList.add('d-none');
     btnArea.classList.add('d-none')
+
+
 
 }
 

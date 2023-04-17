@@ -1,14 +1,12 @@
 .rightArea{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
     height: 100%;
     width: 100%;
 }
 
 .formContent{
-    height: 100%;
+    height: 90%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;   
@@ -17,7 +15,7 @@
 .stepForm{
     height: 70%;
     width: 65%;
-    margin: 30px;
+    margin: auto;
 }
 
 .titleText h1{
@@ -46,6 +44,7 @@
 }
 
 .btnArea{
+    margin: auto;
     width: 65%;
     display: flex;
     justify-content: space-between;
@@ -65,7 +64,7 @@
     margin: 5px;
     border: 1px solid #174a8b;
     border-radius: 10px;
-    width: 150px;
+    width: 25%;
     height: 150px;
 }
 
