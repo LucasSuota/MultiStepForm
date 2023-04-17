@@ -57,6 +57,14 @@ body{
     position: relative;
 }
 
+.rightAreaAll{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+}
+
 .steps{
     margin: 10px;
 }
