@@ -16,10 +16,14 @@
         border-radius: 0;
     }
 
+    .titleText h1{
+        font-size: 20pt
+    }
+
     .leftArea{
         width: 100%;
-        height: 35%;
-        background-position: bottom;
+        height: 25%;
+        background-position: top;
         background-image: url(../assets/images/bg-sidebar-mobile.svg);
         border-radius: 0;
     }
@@ -48,7 +52,7 @@
         width: 85%;
         background: white;
         position: relative;
-        top: -80px;
+        top: -25px;
         border-radius: 10px;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
@@ -78,5 +82,31 @@
 
     .titlePrice{
         margin-left: 10px;
+    }
+
+    .billing p{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .switch{
+        width: 40px;
+        height: 18px;
+    }
+
+    .switch input{
+        width: 30px;
+    }
+
+    .confirmationBtn{
+        width: 40%;
+    }
+
+    .btnArea{
+        width: 74%;
+    }
+
+    .nextStepBtn{
+        width: 40%;
     }
 }
