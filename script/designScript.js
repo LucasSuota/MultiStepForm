@@ -127,13 +127,11 @@ const sendInformation = () => {
     const lastButOne = document.querySelector('.rightAreaAll');
     const btnArea = document.querySelector('.btnArea');
     const rightArea = document.querySelector('.rightArea');
+    const leftArea = document.querySelector('.leftArea');
 
+    leftArea.classList.add('d-none');
     lastTab.classList.remove('d-none');
     lastButOne.classList.add('d-none');
     btnArea.classList.add('d-none')
 
-
-
 }
-
-
